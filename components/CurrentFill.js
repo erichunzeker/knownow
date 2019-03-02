@@ -56,7 +56,7 @@ export default class CurrentFill extends React.Component {
         var name = "hillman library";
         const fill = 'rgb(134, 65, 244)'
         var data = [["hillman library", "the pete gym", "bellefield gym", "posvar"]];
-        var days = [["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]];
+        var days = [["saturday", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday"]];
         var average = this.state.dataSource.average;
         var hour = this.state.dataSource.hour;
 
@@ -66,10 +66,9 @@ export default class CurrentFill extends React.Component {
 
             <View style={{ alignItems: 'center' }}>
 
-
                 <Text style={{paddingTop: 50}}/>
                 <DropdownMenu
-                    style={{ paddingTop: 250 , flex: 1 }}
+                    style={{ paddingTop: 25 , flex: 1 }}
                     bgColor={'white'}
                     tintColor={'#666666'}
                     activityTintColor={'blue'}
@@ -81,13 +80,13 @@ export default class CurrentFill extends React.Component {
                     handler={(selection, row) => this.setState({text: data[selection][row]})}
                     data={data} >
 
-                    <View style={{flex: 1, paddingTop: 100}}>
-                        <Text style={{ width: 300, paddingTop: 200}}>
+                    <View style={{flex: 1 }}>
+                        <Text style={{ width: 300, paddingTop: 20}}>
                         </Text>
                     </View>
                 </DropdownMenu>
 
-                <View style={{ height: 200, paddingTop: 100 }}>
+                <View style={{ height: 200, paddingTop: 10 }}>
                     <ProgressCircle
                         style={{flex:1 }}
                         percent={this.state.dataSource.numPercent}
@@ -100,15 +99,13 @@ export default class CurrentFill extends React.Component {
                     </ProgressCircle>
                 </View>
 
-                <Text style={{paddingTop: 50, paddingBottom: 50}}/>
-
 
                 <DropdownMenu
-                    style={{flex: 1, paddingTop: 100}}
+                    style={{flex: 1, paddingTop: 10}}
                     bgColor={'white'}
                     tintColor={'#666666'}
                     activityTintColor={'green'}
-                    maxHeight={100}
+                    maxHeight={300}
                     handler={(selection, row) => this.setState({day: days[selection][row]})}
                     data={days} >
                     <View style={{flex: 1}}>
@@ -127,11 +124,11 @@ export default class CurrentFill extends React.Component {
                         <Grid/>
                     </BarChart>
                     <XAxis
-                        style={{ marginHorizontal: -10, width: 350 }}
+                        style={{ marginHorizontal: -10, width: 350, paddingBottom: 20}}
                         data={ average }
-                        formatLabel={ (value, index) => hour[index].substring(3) }
-                        contentInset={{ left: 10, right: 10 }}
-                        svg={{ fontSize: 10, fill: 'black' }}
+                        formatLabel={(value, index) => hour[index].substring(3)}
+                        contentInset={{ left: 0, right: 0 }}
+                        svg={{ fontSize: 5, fill: 'black' }}
                     />
                 </View>
 
