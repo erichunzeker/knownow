@@ -5,8 +5,12 @@ class API {
         this._api = axios.create( { baseURL : 'http://know-now.herokuapp.com' } );
     }
 
-    getData() {
-        return this._api.get( 'api/v1/dashboard_data' );
+    getLocations() {
+        return this._api.get( 'api/v1/locations' );
+    }
+
+    getFillByLocations(id) {
+        return this._api.get( 'api/v1/fill/' + id );
     }
 }
 
